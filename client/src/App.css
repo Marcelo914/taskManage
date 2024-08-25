@@ -1,0 +1,69 @@
+body{
+    background-color: #131313;
+}
+
+/* Container principal que envolve todos os posts */
+.App {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #2d2d2d; /* Cor de fundo da página */
+}
+
+/* Estilização de cada post */
+.post {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Cabeçalho do post */
+.post-header {
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Corpo do post */
+.post-body {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Rodapé do post */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.username {
+  font-size: 14px;
+  color: #aaa;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5px;
+}
