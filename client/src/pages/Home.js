@@ -11,24 +11,26 @@ function Home() {
         })
     }, [])
     return (
-        <div className="App">
+        <div className='App'>
             {listOfPosts.map((value, key) => {
                 return (
-                    <div className="post" key={key}>
-                        <div className="post-header">
-                            <div className="title">{value.title}</div>
-                            <div className="subtitle">{value.subtitle}</div>
+                    <div className='post'>
+                        <div className='title'>
+                            {value.title}
                         </div>
-                        <div className="post-body">{value.postText}</div>
-                        <div className="post-footer">
-                            <div className="username">{value.username}</div>
+                        <div className='body'>
+                            {value.postText}
+                        </div>
+                        <div className='footer'>
+                            {value.username}
                         </div>
                     </div>
-                );
+                )
             })}
         </div>
     );
 }
+
 
 export default Home;
 

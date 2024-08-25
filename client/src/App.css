@@ -1,9 +1,13 @@
+label{
+    color: #FFF;
+}
 body{
     background-color: #131313;
 }
 
 /* Container principal que envolve todos os posts */
 .App {
+    margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -23,11 +27,6 @@ body{
   justify-content: space-between;
 }
 
-/* Cabeçalho do post */
-.post-header {
-  margin-bottom: 15px;
-}
-
 .title {
   font-size: 18px;
   font-weight: bold;
@@ -39,31 +38,79 @@ body{
   margin-top: 5px;
 }
 
-/* Corpo do post */
-.post-body {
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: #ccc;
-}
-
-/* Rodapé do post */
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.username {
-  font-size: 14px;
-  color: #aaa;
-  background-color: #333;
-  padding: 5px 10px;
-  border-radius: 20px;
-}
-
-.links{
+.top-bar {
+    background-color: #3a3a3a; /* Cor de fundo um pouco mais clara */
+    padding: 15px 20px; /* Espaçamento interno */
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 5px;
+    justify-content: space-between; /* Espaço entre os links */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para destacar a barra */
+}
+
+/* Estilo dos links de navegação */
+.top-bar a {
+    color: #FFF; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    margin: 0 10px; /* Espaçamento horizontal entre os links */
+    font-weight: bold; /* Deixa o texto mais forte */
+    transition: color 0.3s ease; /* Transição suave para hover */
+}
+
+.top-bar a:hover {
+    color: #b3b3b3; /* Cor do texto ao passar o mouse */
+}
+
+
+/* Create post style */
+.CreatePostPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #131313;
+}
+
+/* Container do formulário */
+.formContainer {
+  background-color: #2d2d2d;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo dos rótulos */
+label {
+  color: #FFF;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Estilo dos campos de entrada */
+#inputCreatePost {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3a3a3a;
+  color: #FFF;
+}
+
+/* Estilo do botão de criar post */
+.Post-Button {
+  background-color: #5c5c5c;
+  color: #FFF;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Post-Button:hover {
+  background-color: #757575;
 }
