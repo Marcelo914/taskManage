@@ -1,11 +1,11 @@
-module.exports = (sequelize, DataTypes) => {
-
-    const Tasks = sequelize.define("Tasks", {
+module.exports = (sequelize, DataTypes)=> {
+    
+    const Posts = sequelize.define("Posts", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        taskText: {
+        postText: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -15,5 +15,5 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    return Tasks;
+    return Posts;
 }
