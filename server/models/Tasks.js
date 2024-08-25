@@ -1,5 +1,6 @@
-module.exports = (sequelize,DataTypes) => {
-const Tasks = sequelize.define("Tasks", {
+module.exports = (sequelize, DataTypes) => {
+
+    const Tasks = sequelize.define("Tasks", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -13,4 +14,6 @@ const Tasks = sequelize.define("Tasks", {
             allowNull: false,
         },
     });
+
+    return Tasks;
 }
