@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Users } = require('../models');
 const bcrypt = require("bcrypt");
+const { sign } = require('jsonwebtoken');
 
 router.post("/", async (req, res) => {
     const { username, password } = req.body;
@@ -19,12 +20,24 @@ router.post("/login", async (req, res) => {
 
     const user = await Users.findOne({ where: { username: username } });
 
-    if (!user) res.json({ error: "usuario não encontrado" });
-    
-    bcrypt.compare(password, user.password).then((match) => {
-        if (!match) res.json({ error: "Usuario ou senha errado" })
+    if (!user) {
+        return res.json({ error: "Usuário não encontrado" });
+    }
 
-        res.json("Login...");
+    bcrypt.compare(password, user.password).then((match) => {
+        if (!match) {
+            return res.json({ error: "Senha incorreta" });
+        }
+
+
+        const accessToken = sign(
+            {
+                username: user.username,
+                id: user.id
+            },
+            "importantsecret"
+        );
+        res.json(accessToken);
     });
 });
 
