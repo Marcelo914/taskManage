@@ -5,9 +5,10 @@ const bcrypt = require("bcrypt");
 const { sign } = require('jsonwebtoken');
 
 router.post("/", async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
     bcrypt.hash(password, 10).then((hash) => {
         Users.create({
+            email: email,
             username: username,
             password: hash,
         })
@@ -16,12 +17,12 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    const { username, password } = req.body;
+    const { password, email } = req.body;
 
-    const user = await Users.findOne({ where: { username: username } });
+    const user = await Users.findOne({ where: { email: email } });
 
     if (!user) {
-        return res.json({ error: "Usuário não encontrado" });
+        return res.json({ error: "Email não registrado" });
     }
 
     bcrypt.compare(password, user.password).then((match) => {
@@ -32,7 +33,7 @@ router.post("/login", async (req, res) => {
 
         const accessToken = sign(
             {
-                username: user.username,
+                email: user.email,
                 id: user.id
             },
             "importantsecret"
